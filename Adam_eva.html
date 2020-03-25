@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Phat trien ung dung adam va eva</title>
+</head>
+<body>
+<script>
+    let Apple = function () {
+        this.weight=10;
+        this.isEmpty= function () {
+            if (this.weight>0){
+                return false;
+            }
+            return true;
+        };
+        this.decrease= function () {
+            this.weight--;
+        }
+    };
+    let Human= function (name,gender,weight) {
+        this.name=name;
+        this.gender=gender;
+        this.weight=weight;
+        this.setGender= function () {
+           if (this.gender===true){
+               return "Male";
+           }
+           return "Female";
+        };
+        this.isMale= function () {
+            if (this.gender===true){
+                return true;
+            }
+            return false;
+        };
+        this.checkApple = function (apple){
+            this.apple=apple;
+            if (this.apple.weight>0){
+                alert("Ok apple already");
+            } else {
+                alert("Have not apple");
+            }
+
+        };
+        this.eat = function (apple) {
+            apple.decrease();
+            this.weight++;
+        }
+        this.say= function () {
+            alert( "I am is " + this.name + " Nice to meet you" )
+        }
+        this.setWeight= function (weight) {
+            this.weight=weight;
+        }
+        this.getWeight = function () {
+            return this.weight;
+        }
+    }
+    let apple = new Apple ();
+    document.write(apple.isEmpty() +"<br/>");
+    let human= new Human("Adam",true,50);
+    human.say();
+    human.checkApple(apple);
+    human.eat(apple);
+    alert(human.getWeight());
+    alert(apple.weight);
+</script>
+</body>
+</html>
